@@ -1,0 +1,9 @@
+.imgs{
+    height: 20vh;
+    width: 15vh;
+    object-fit: cover;
+}
+
+.menu-text{
+    bottom: 20px;
+}

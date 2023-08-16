@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Ice Cream Parlor🍦</title>
+  </head>
+
+  <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
+
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style>
+
+  <body class="">
+    <header class="container-fluid">
+      <section class="row justify-content-center text-center">
+        <div class="col-6 bg-info">
+          <h1>Code Works Ice Cream🍨</h1>
+        </div>
+      </section>
+    </header>
+    <main class="container-fluid">
+      <section class="row">
+        <!-- NOTE Menu Starts here -->
+        <div class="col-6">
+          <h2>Cart</h2>
+          <div class="fs-2">
+            <div id="cart">
+              <div>
+                <!-- <span> Straw</span>
+                        <span>$10</span> -->
+              </div>
+            </div>
+            <div class="text-end">
+              <p>TOTAL:$<span id="total"></span></p>
+            </div>
+          </div>
+          <div>
+            <button onclick="checkout()">CHECKOUT</button>
+          </div>
+        </div>
+        <!-- SECTION Topping  -->
+        <h2>Toppings</h2>
+        <div class="row">
+          <div class="col-6 position-relative">
+            <img
+              class="imgs"
+              src="https://images.unsplash.com/photo-1589726311225-3921a18550ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+              alt="Sprinkles"
+            />
+            <div class="position-absolute menu-text">
+              <span>Sprinkles</span>
+              <span>$2</span>
+              <button onclick="buyTopping('sprinkles')">Add</button>
+            </div>
+          </div>
+          <div class="col-6">
+            <img
+              class="imgs"
+              src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VtbWllc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            />
+            <div>
+              <span>Gummies</span>
+              <span>$5</span>
+              <button onclick="buyTopping('gummies')">Add</button>
+            </div>
+          </div>
+        </div>
+        <!-- SECTION Vessels -->
+        <div class="col-6">
+          <h2>Vessels</h2>
+          <div class="row">
+            <div class="col-6">
+              <img
+                class="imgs"
+                src="https://images.unsplash.com/photo-1559703248-dcaaec9fab78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2FmZmxlJTIwY29uZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Sprinkles"
+              />
+              <div>
+                <span>Waffle Cone</span>
+                <span>$9</span>
+                <button onclick="buyVessels('waffle cone')">Add</button>
+              </div>
+            </div>
+            <div class="col-6">
+              <img
+                class="imgs"
+                src="https://images.unsplash.com/photo-1574585046455-827418063fc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y3Vwc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="Sprinkles"
+              />
+              <div>
+                <span>cup</span>
+                <span>$15</span>
+                <button onclick="buyVessels('cups')">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SECTION Ice Cream -->
+        <div class="col-6">
+          <h2>Ice Cream</h2>
+          <div class="row">
+            <div class="col-6">
+              <img
+                class="imgs"
+                src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dmFuaWxsYSUyMGljZSUyMGNyZWFtfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                alt="Sprinkles"
+              />
+              <div id="cart">
+                <span>Vanilla</span>
+                <span>$4</span>
+                <button onclick="buyIceCream('vanilla')">Add</button>
+              </div>
+            </div>
+            <div class="col-6">
+              <img
+                class="imgs"
+                src="https://images.unsplash.com/photo-1618485476424-7dc9cd512c08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3RyYXdiZXJyeSUyMGljZSUyMGNyZWFtfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                alt="Sprinkles"
+              />
+              <span>Straw</span>
+              <span>$4</span>
+              <button onclick="buyIceCream('straw')">Add</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
